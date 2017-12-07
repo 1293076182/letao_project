@@ -1,0 +1,13 @@
+h3{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+ul,ol{
+    margin: 0;
+    padding: 0;
+}
