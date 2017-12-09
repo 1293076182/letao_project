@@ -15,6 +15,26 @@
 </head>
 
 <body>
+    <div class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger">您确定要退出后台系统?&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-primary">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="lt_aside-left pull-left">
         <div class="top">
             <h3>
@@ -38,8 +58,12 @@
                 <a href="javascript:;">
                     <span class="glyphicon glyphicon-list"> 分类管理</span>
                     <ol>
-                        <li><a href="javascript::">一级分类</a></li>
-                        <li><a href="javascript:;">二级分类</a></li>
+                        <li>
+                            <a href="javascript::">一级分类</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">二级分类</a>
+                        </li>
                     </ol>
                 </a>
             </li>
@@ -50,7 +74,7 @@
             </li>
         </ul>
     </div>
-    <div class="lt_aside-right">
+    <div class="lt_aside-right clearfix">
         <div class="top">
             <a href="javascript:;" class="glyphicon glyphicon-align-justify pull-left"></a>
             <a href="javascript:;" class="glyphicon glyphicon-log-out pull-right"></a>
@@ -66,6 +90,7 @@
         <div id="main" style="width: 600px;height:400px;" class="pull-left"></div>
         <div id="yuan" style="width: 500px;height:400px;" class="pull-right"></div>
     </div>
+
 </body>
 
 </html>
