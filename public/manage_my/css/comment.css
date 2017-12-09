@@ -46,19 +46,19 @@ body {
     border-left: 3px solid skyblue;
     color: #fff;
 }
-.lt_aside-left ol{
+/* .lt_aside-left ol{
     display:none;
-}
+} */
 .lt_aside-left ol li {
     line-height: 20px;
 }
 
 .lt_aside-left ol li>a {
     font-size: 12px;
+    line-height: 30px;
     padding-left: 30px;
 }
 .lt_aside-left ol>li.active a{
-
     color: #fff;
 }
 

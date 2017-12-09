@@ -88,16 +88,49 @@
                 用户管理
             </li>
         </ol>
+        <div class="table">
+            <table class="table table-bordered table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>手机号</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <ul id="pagintor"></ul>
     </div>
-
 </body>
 
 </html>
+<script type="text/html" id="tableTMP">
+    {{each rows}}
+    <tr>
+        <td>{{(page-1)*size+1+$index}}</td>
+        <td>{{$value.username}}</td>
+        <td>{{$value.mobile}}</td>
+        <td>{{if $value.isDelete == 0}}正常{{else}}已禁用{{/if}}</td>
+        <td data-id="{{$value.id}}">
+            {{if $value.isDelete == 0}}
+            <button class="btn btn-danger">禁用</button>
+            {{else}}
+            <button class="btn btn-primary">启用</button>
+            {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+</script>
 <!-- 导入jq -->
 <script src="./lib/jquery/jquery.min.js"></script>
 <!-- 导入bs的js -->
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./assets/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="./assets/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./js/comment.js"></script>
+<script src="./assets/artTemplate/template.js"></script>
 <!-- 自己的js -->
 <script src="./js/user.js"></script>
