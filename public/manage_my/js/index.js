@@ -1,13 +1,5 @@
 $(function () {
-    $.ajax({
-        url:'/employee/checkRootLogin',
-        success:function(data){
-            console.log(data)
-            if(data.error==400){
-                window.location='login.html'
-            }
-        }
-    })
+    
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
 
@@ -89,30 +81,10 @@ $(function () {
 
     // 使用刚指定的配置项和数据显示图表。
     myChart1.setOption(option1);
-    $('.lt_aside-right .top a').first().on('click',function(){
-        $('.lt_aside-left').toggle()
-        $('.lt_aside-right').toggleClass('on')
-    }) 
+    
 
-    $('.lt_aside-right .top a').last().on('click',function(){
-        $('.modal').show().toggleClass('fade')
-    })
+    
 
-    $('.modal-footer button').first().on('click',function(){
-        $('.modal').hide().toggleClass('fade')
-        $.ajax({
-            url:'/employee/employeeLogout',
-            success:function(data){
-                console.log(data)
-                window.location='login.html'
-            }
-        })
-        
-    })
-    $('.modal-footer button').last().on('click',function(){
-        $('.modal').hide().toggleClass('fade')
-    })
-    $('.modal-header .close span').on('click',function(){
-        $('.modal').hide().toggleClass('fade')
-    })
+    
+    
 })
