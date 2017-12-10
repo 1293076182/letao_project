@@ -1,33 +1,33 @@
 $(function () {
     var myPage = 1;
-    var myPageNum = 5;
 
-    function init(myPage, myPageNum) {
+    function init() {
         $.ajax({
             url: '/category/queryTopCategoryPaging',
             data: {
                 page: myPage,
-                pageSize: myPageNum
+                pageSize: 5
             },
             success: function (data) {
                 console.log(data)
+                myPageSize = Math.ceil(data.total/data.size)
                 var result = template('tableTMP', data)
                 $('.table-add tbody').html(result)
                 $("#pagintor").bootstrapPaginator({
                     bootstrapMajorVersion:3,//默认是2，如果是bootstrap3版本，这个参数必填
                     currentPage:myPage,//当前页
-                    totalPages:myPageNum,//总页数
+                    totalPages:myPageSize,//总页数
                     size:"small",//设置控件的大小，mini, small, normal,large
                     onPageClicked:function(event, originalEvent, type,page){
                       //为按钮绑定点击事件 page:当前点击的按钮值
                       myPage = page;
-                      init(myPage,myPageNum);
+                      init();
                     }
                   });
             }
         })
     }
-    init(myPage, myPageNum)
+    init()
 
     $('form').bootstrapValidator({
         feedbackIcons: {
@@ -59,11 +59,18 @@ $(function () {
             type: 'post',
             data: $('form').serialize(),
             success: function (data) {
-                console.log(data)
                 $('.modal-add').modal('hide')
-                init(myPage,myPageNum)
+                $("form").data('bootstrapValidator').resetForm();
                 $('.form-control').val('')
+                init()
             }
         })
     });
+
+    $('.modal-add .modal-footer button[type=button]').on('click',function(){
+        window.location.reload()
+    })
+    $('.modal-add .modal-header').on('click','span',function(e){
+        window.location.reload()
+    })
 })

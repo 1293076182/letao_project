@@ -1,9 +1,6 @@
 #table{
     padding: 0 20px;
 }
-#table img {
-    width: 100px;
-}
 .lt_aside-right button{
     margin-bottom: 10px;
     margin-left: 20px;
@@ -15,4 +12,7 @@
     position: absolute;
     height: 34px;
     opacity: 0;
+}
+#pagintor{
+    margin-left: 20px;
 }

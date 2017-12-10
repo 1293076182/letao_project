@@ -1,18 +1,32 @@
 $(function () {
     var myPage = 1;
-    var myPageSize = 5;
-    $.ajax({
-        url: '/category/querySecondCategoryPaging',
-        data: {
-            page: myPage,
-            pageSize: myPageSize
-        },
-        success: function (data) {
-            console.log(data)
-            var result = template('tableTMP', data)
-            $('tbody').html(result)
-        }
-    })
+    function init(){
+        $.ajax({
+            url: '/category/querySecondCategoryPaging',
+            data: {
+                page: myPage,
+                pageSize: 5
+            },
+            success: function (data) {
+                console.log(data)
+                myPageSize = Math.ceil(data.total/data.size)
+                var result = template('tableTMP', data)
+                $('tbody').html(result)
+                $("#pagintor").bootstrapPaginator({
+                    bootstrapMajorVersion:3,//默认是2，如果是bootstrap3版本，这个参数必填
+                    currentPage:myPage,//当前页
+                    totalPages:myPageSize,//总页数
+                    size:"small",//设置控件的大小，mini, small, normal,large
+                    onPageClicked:function(event, originalEvent, type,page){
+                      //为按钮绑定点击事件 page:当前点击的按钮值
+                      myPage = page;
+                      init()
+                    }
+                  });
+            }
+        })
+    }
+    init()
     $("#fileupload").fileupload({
         dataType: "json",
         //e：事件对象
@@ -40,6 +54,7 @@ $(function () {
         $('#secondForm input[name=categoryId]').val($(this).attr('data-id'))
     })
     $('#secondForm').bootstrapValidator({
+        excluded: [':disabled'],
         //2. 指定校验时的图标显示，默认是bootstrap风格
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -78,5 +93,20 @@ $(function () {
     }).on('success.form.bv', function (e) {
         e.preventDefault();
         $('.modal-add').modal('hide')
+        $.ajax({
+            url:'/category/addSecondCategory',
+            type:'post',
+            data:$('form').serialize(),
+            success:function(data){
+                window.location.reload()
+            }
+        })
     })
+    $('.modal-add .modal-header span').on('click',function(){
+        window.location.reload()
+    })
+    $('.modal-add .modal-footer button[type=button]').on('click',function(){
+        window.location.reload()
+    })
+    
 })
