@@ -15,10 +15,10 @@ $(function(){
     }) 
 
     $('.lt_aside-right .top a').last().on('click',function(){
-        $('.modal').show().toggleClass('fade')
+        $('.modal-sure').show().toggleClass('fade')
     })
 
-    $('.modal-footer button').first().on('click',function(){
+    $('.modal-sure .modal-footer button').first().on('click',function(){
         $('.modal').hide().toggleClass('fade')
         $.ajax({
             url:'/employee/employeeLogout',
@@ -30,7 +30,7 @@ $(function(){
         
     })
 
-    $('.modal-footer button').last().on('click',function(){
+    $('.modal-sure .modal-footer button').last().on('click',function(){
         $('.modal').hide().toggleClass('fade')
     })
     

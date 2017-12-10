@@ -1,0 +1,18 @@
+#table{
+    padding: 0 20px;
+}
+#table img {
+    width: 100px;
+}
+.lt_aside-right button{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.modal-add img{
+    width: 100px;
+}
+#fileupload{
+    position: absolute;
+    height: 34px;
+    opacity: 0;
+}

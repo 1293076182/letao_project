@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal fade modal-sure" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -35,9 +35,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- /.modal -->
-
     <div class="lt_aside-left pull-left">
         <div class="top">
             <h3>
@@ -107,6 +104,7 @@
                 </tbody>
             </table>
         </div>
+        <ul id="pagintor"></ul>
     </div>
     <div class="modal fade modal-add" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm" role="document">
@@ -122,12 +120,12 @@
                         <div class="form-group">
                             <input type="text" name="categoryName" class="form-control" placeholder="请输入一级分类名称">
                         </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                     <button type="submit" form="firstForm" class="btn btn-primary">确定</button>
                 </div>
-            </form>
             
             </div>
             <!-- /.modal-content -->
@@ -145,13 +143,13 @@
     </tr>
     {{/each}}
 </script>
-<script src="./assets/echarts/echarts.min.js"></script>
 <!-- 导入jq -->
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./assets/artTemplate/template.js"></script>
 <!-- 导入bs的js -->
+<script src="./assets/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./assets/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-<script src="./js/comment.js"></script>
 <!-- 自己的js -->
+<script src="./js/comment.js"></script>
 <script src="./js/first.js"></script>
