@@ -1,0 +1,27 @@
+.lt_aside-right>button{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+#table{
+    padding: 0 20px;
+}
+#fileupload{
+    position: absolute;
+    height: 34px;
+    opacity: 0;
+}
+#pagintor{
+    margin-left: 20px;
+}
+form a{
+    display: inline-block;
+    width: 110px;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+form span.glyphicon-remove{
+    width: 10px;
+    height: 10px;
+    float: right;
+    color: red;
+}
